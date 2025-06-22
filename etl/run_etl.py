@@ -6,8 +6,10 @@ df = pd.read_csv('./data/dailyActivity_merged.csv')
 print(f"✅ Loaded {len(df)} rows")
 
 # Transform: Clean data
-df.dropna(inplace=True)
+df=df.dropna(inplace=True)
 print(f"✅ Cleaned: {len(df)} rows after dropping empty")
+df=df.drop_duplicates(inplace=True)
+print(f"✅ Removed Duplicates: {len(df)} rows after dropping empty")
 
 # Load: Insert data into PostgreSQL
 try:
